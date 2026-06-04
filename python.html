@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Python Projects | Surbhi Priya</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#1a2260;--navy-deep:#0f1540;--accent:#e8894a;--accent2:#f4a261;--blush:#fff5ee;--blush2:#fde8d5;--cream:#faf8f4;--white:#ffffff;--text:#1a1a2e;--muted:#6b7280;--border:rgba(0,0,0,0.07);--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Plus Jakarta Sans',sans-serif;--r:18px;--r-lg:28px;--sh:0 4px 24px rgba(0,0,0,0.07);--sh-lg:0 16px 56px rgba(0,0,0,0.11);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--text);font-family:var(--font-sans);line-height:1.7;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 7%;background:rgba(250,248,244,0.95);backdrop-filter:blur(14px);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border);}
+.logo{font-family:var(--font-serif);font-size:24px;font-weight:700;color:var(--navy);text-decoration:none;}
+.logo span{color:var(--accent);}
+.back-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:10px 22px;border-radius:50px;text-decoration:none;font-size:13px;font-weight:700;transition:.3s;}
+.back-btn:hover{background:var(--accent);transform:translateY(-2px);}
+.page-hero{padding:70px 7% 50px;background:linear-gradient(140deg,var(--cream) 0%,#fff 55%,var(--blush) 100%);}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.sec-label::before{content:'';width:22px;height:2px;background:var(--accent);border-radius:2px;display:inline-block;}
+.page-hero h1{font-family:var(--font-serif);font-size:clamp(36px,5vw,62px);font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:16px;}
+.page-hero h1 em{font-style:italic;color:var(--accent);}
+.page-hero p{font-size:16px;color:var(--muted);max-width:620px;line-height:1.85;}
+.projects-section{padding:60px 7%;}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:32px;}
+.project-card{background:var(--white);border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);transition:.35s;}
+.project-card:hover{transform:translateY(-8px);box-shadow:var(--sh-lg);border-color:rgba(232,137,74,0.3);}
+.project-card img{width:100%;height:240px;object-fit:cover;display:block;cursor:zoom-in;transition:.4s;}
+.project-card:hover img{transform:scale(1.04);}
+.project-content{padding:30px;}
+.proj-tag{display:inline-block;background:var(--blush2);color:var(--accent);font-size:11px;font-weight:800;padding:4px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:14px;}
+.project-content h3{font-family:var(--font-serif);font-size:22px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3;}
+.project-content p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:10px;}
+.project-content p strong{color:var(--navy);}
+.tools-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;margin-bottom:20px;}
+.tool-chip{background:var(--cream);border:1px solid var(--border);color:var(--navy);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;}
+.live-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 26px;border-radius:50px;text-decoration:none;font-size:13px;font-weight:700;transition:.3s;}
+.live-btn:hover{background:var(--accent);transform:translateY(-2px);}
+footer{background:#0b1135;text-align:center;padding:30px 7%;color:rgba(255,255,255,0.35);font-size:13px;}
+footer span{color:var(--accent);}
+.imgmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9998;align-items:center;justify-content:center;}
+.imgmodal.open{display:flex;}
+.imgmodal img{max-width:92vw;max-height:90vh;border-radius:16px;}
+.imgmodal-x{position:fixed;top:20px;right:26px;color:#fff;font-size:38px;cursor:pointer;background:none;border:none;z-index:9999;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@media(max-width:768px){.projects-grid{grid-template-columns:1fr;}.page-hero{padding:50px 6% 40px;}.projects-section{padding:40px 6%;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Surbhi<span>.</span></a>
+  <a href="index.html" class="back-btn">← Back to Portfolio</a>
+</nav>
+<div class="page-hero">
+  <div class="sec-label">Python & Streamlit</div>
+  <h1>Python <em>Projects</em></h1>
+  <p>Collection of Python and Streamlit projects focused on ecommerce experimentation, analytics, and interactive business tools — both deployed live.</p>
+</div>
+<section class="projects-section">
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <img src="marketing_campaign_analyzer_python.png" alt="Marketing Campaign Analyzer" onclick="openImg(this.src)">
+      <div class="project-content">
+        <span class="proj-tag">Python · Streamlit</span>
+        <h3>Marketing Campaign Analyzer</h3>
+        <p>Built an interactive marketing analytics tool to calculate campaign performance metrics including ROI, revenue efficiency, clicks, and order analysis.</p>
+        <p><strong>Features:</strong> Interactive number inputs for Ad Spend, Clicks, Orders, and Revenue — instantly computes KPIs and campaign performance summary.</p>
+        <div class="tools-row"><span class="tool-chip">Python</span><span class="tool-chip">Streamlit</span><span class="tool-chip">Pandas</span><span class="tool-chip">NumPy</span></div>
+        <a href="https://marketing-campaign-analyzer-gfvjnbfufbuhzu725mkken.streamlit.app/" target="_blank" class="live-btn">▶ View Live Project</a>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <img src="2ndpythonproject.png" alt="Mokti Mood Recommendation" onclick="openImg(this.src)">
+      <div class="project-content">
+        <span class="proj-tag">Python · Streamlit · Mokti</span>
+        <h3>Mokti Mood-Based Recommendation</h3>
+        <p>A personal experimental project built using Python and Streamlit to explore mood-based product recommendations and interactive ecommerce experiences.</p>
+        <p>Users select their current mood — Chill calm days, Carry what matters, Lost deep in stories, or Something unique — and receive curated Mokti product suggestions.</p>
+        <p><strong>Features:</strong> Mood-based recommendation flow, interactive user inputs, and ecommerce-inspired UI experimentation.</p>
+        <div class="tools-row"><span class="tool-chip">Python</span><span class="tool-chip">Streamlit</span><span class="tool-chip">Mokti Brand</span></div>
+        <a href="https://mokti-quiz-gwessfnmqc8ir62rzfw3xc.streamlit.app/" target="_blank" class="live-btn">▶ View Live Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>© 2026 <span>Surbhi Priya</span> · Ecommerce Operations · Analytics · 3× Author · Built with ♥</footer>
+<div class="imgmodal" id="imgModal" onclick="closeImgClick(event)">
+  <button class="imgmodal-x" onclick="closeImg()">&times;</button>
+  <img id="modalImg" src="" alt="">
+</div>
+<script>
+function openImg(src){document.getElementById('modalImg').src=src;document.getElementById('imgModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeImgClick(e){if(e.target===document.getElementById('imgModal'))closeImg();}
+function closeImg(){document.getElementById('imgModal').classList.remove('open');document.body.style.overflow='';}
+var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+</script>
+</body>
+</html>

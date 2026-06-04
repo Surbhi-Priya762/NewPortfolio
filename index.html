@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Surbhi Priya | Ecommerce Operations · Analytics · Author · Content Creator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#1a2260;
+  --navy-deep:#0f1540;
+  --accent:#e8894a;
+  --accent2:#f4a261;
+  --blush:#fff5ee;
+  --blush2:#fde8d5;
+  --cream:#faf8f4;
+  --white:#ffffff;
+  --text:#1a1a2e;
+  --muted:#6b7280;
+  --border:rgba(0,0,0,0.07);
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans:'Plus Jakarta Sans',sans-serif;
+  --r:18px;
+  --r-lg:28px;
+  --sh:0 4px 24px rgba(0,0,0,0.07);
+  --sh-lg:0 16px 56px rgba(0,0,0,0.11);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--text);font-family:var(--font-sans);line-height:1.7;overflow-x:hidden;}
+
+/* NAV */
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 7%;background:rgba(250,248,244,0.95);
+  backdrop-filter:blur(14px);position:sticky;top:0;z-index:1000;
+  border-bottom:1px solid var(--border);
+}
+.logo{font-family:var(--font-serif);font-size:24px;font-weight:700;color:var(--navy);letter-spacing:-0.3px;text-decoration:none;}
+.logo span{color:var(--accent);}
+nav ul{display:flex;list-style:none;gap:28px;align-items:center;}
+nav ul li a{text-decoration:none;color:var(--muted);font-size:13.5px;font-weight:500;transition:.25s;letter-spacing:0.1px;}
+nav ul li a:hover{color:var(--navy);}
+.nav-cta{background:var(--navy)!important;color:#fff!important;padding:9px 22px;border-radius:50px;font-size:13px!important;font-weight:600!important;}
+.nav-cta:hover{background:var(--navy-deep)!important;color:#fff!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--text);display:block;border-radius:2px;}
+.mob-nav{display:none;flex-direction:column;gap:0;background:rgba(250,248,244,0.98);border-bottom:1px solid var(--border);}
+.mob-nav a{padding:14px 7%;text-decoration:none;color:var(--text);font-size:15px;font-weight:500;border-bottom:1px solid var(--border);}
+
+/* HERO */
+.hero{
+  min-height:95vh;display:flex;align-items:center;
+  padding:60px 7%;gap:64px;flex-wrap:wrap;
+  background:linear-gradient(140deg,var(--cream) 0%,#fff 55%,var(--blush) 100%);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-120px;right:-100px;width:560px;height:560px;
+  border-radius:50%;background:radial-gradient(circle,rgba(232,137,74,0.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-80px;left:-80px;width:360px;height:360px;
+  border-radius:50%;background:radial-gradient(circle,rgba(26,34,96,0.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-left{flex:1;min-width:300px;position:relative;z-index:1;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--blush2);color:var(--accent);
+  padding:8px 20px;border-radius:50px;font-size:13px;font-weight:700;
+  margin-bottom:26px;border:1px solid rgba(232,137,74,0.25);letter-spacing:0.3px;
+}
+.eyebrow::before{content:'✦';font-size:10px;}
+.hero h1{
+  font-family:var(--font-serif);font-size:clamp(44px,5.5vw,76px);
+  font-weight:700;line-height:1.06;color:var(--navy);margin-bottom:8px;
+}
+.hero h1 em{color:var(--accent);font-style:italic;}
+.hero-sub{
+  font-family:var(--font-serif);font-size:clamp(20px,2.8vw,32px);
+  font-weight:400;font-style:italic;color:var(--muted);margin-bottom:22px;line-height:1.4;
+}
+.hero-desc{font-size:15.5px;color:var(--muted);max-width:500px;line-height:1.85;margin-bottom:36px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-p{
+  background:var(--navy);color:#fff;padding:14px 32px;
+  border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;
+  transition:.3s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;
+}
+.btn-p:hover{background:var(--navy-deep);transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,34,96,0.25);}
+.btn-s{
+  background:transparent;color:var(--navy);padding:14px 32px;
+  border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;
+  border:2px solid var(--navy);transition:.3s;
+}
+.btn-s:hover{background:var(--navy);color:#fff;transform:translateY(-2px);}
+.hero-stats{display:flex;gap:36px;margin-top:44px;flex-wrap:wrap;}
+.stat{text-align:left;}
+.stat-n{font-family:var(--font-serif);font-size:36px;font-weight:700;color:var(--navy);line-height:1;}
+.stat-l{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.6px;margin-top:4px;}
+
+/* HERO IMAGE SIDE */
+.hero-right{flex:1;min-width:280px;display:flex;justify-content:center;align-items:center;position:relative;z-index:1;}
+.hero-img-stack{position:relative;display:inline-block;}
+.hero-img-main{
+  width:340px;height:440px;object-fit:cover;object-position:top;
+  border-radius:var(--r-lg);box-shadow:var(--sh-lg);display:block;
+}
+.hero-badge-1{
+  position:absolute;bottom:-20px;left:-22px;
+  background:var(--navy);color:#fff;padding:16px 20px;
+  border-radius:18px;box-shadow:var(--sh-lg);
+  font-size:12px;font-weight:600;line-height:1.5;max-width:155px;
+}
+.hero-badge-1 strong{color:var(--accent2);display:block;font-size:20px;font-weight:800;font-family:var(--font-serif);}
+.hero-badge-2{
+  position:absolute;top:-16px;right:-16px;
+  background:var(--accent);color:#fff;padding:11px 18px;
+  border-radius:14px;font-size:12px;font-weight:800;letter-spacing:0.3px;
+  box-shadow:0 6px 20px rgba(232,137,74,0.4);
+}
+
+/* SECTION BASE */
+section{padding:90px 7%;}
+.sec-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:14px;
+}
+.sec-label::before{content:'';width:22px;height:2px;background:var(--accent);border-radius:2px;display:inline-block;}
+.sec-h{
+  font-family:var(--font-serif);font-size:clamp(30px,3.8vw,52px);
+  font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:14px;
+}
+.sec-h em{font-style:italic;}
+.sec-p{font-size:15px;color:var(--muted);max-width:580px;line-height:1.85;margin-bottom:50px;}
+
+/* ABOUT */
+#about{background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:center;}
+.about-img-col{position:relative;}
+.about-img-col img{width:100%;border-radius:var(--r-lg);box-shadow:var(--sh);display:block;object-fit:cover;object-position:top;}
+.about-accent{
+  position:absolute;bottom:-20px;right:-20px;
+  width:130px;height:130px;border-radius:var(--r);
+  background:var(--blush2);border:3px solid rgba(232,137,74,0.35);z-index:0;
+}
+.about-text p{font-size:15.5px;color:var(--muted);line-height:1.9;margin-bottom:18px;}
+.about-text p strong{color:var(--navy);font-weight:700;}
+.about-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.chip{
+  background:var(--blush);color:var(--navy);padding:8px 18px;
+  border-radius:50px;font-size:13px;font-weight:600;
+  border:1px solid rgba(26,34,96,0.1);
+}
+
+/* SKILLS */
+#skills{background:var(--cream);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;}
+.sk-card{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--r);
+  padding:24px;cursor:pointer;transition:.3s;
+}
+.sk-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 10px 36px rgba(232,137,74,0.15);}
+.sk-card .sk-ico{font-size:28px;margin-bottom:12px;}
+.sk-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:5px;}
+.sk-card p{font-size:12px;color:var(--muted);line-height:1.5;}
+/* modal */
+.sk-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.sk-overlay.open{display:flex;}
+.sk-box{background:var(--white);border-radius:var(--r-lg);padding:44px;max-width:480px;width:90%;position:relative;animation:pop .25s ease;}
+@keyframes pop{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+.sk-close{position:absolute;top:16px;right:20px;font-size:28px;cursor:pointer;color:var(--muted);background:none;border:none;}
+.sk-box h2{font-family:var(--font-serif);font-size:30px;color:var(--navy);margin-bottom:20px;}
+.sk-box ul{list-style:none;}
+.sk-box ul li{padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px;color:var(--muted);display:flex;align-items:flex-start;gap:10px;}
+.sk-box ul li::before{content:'→';color:var(--accent);font-weight:800;flex-shrink:0;margin-top:1px;}
+.sk-box ul li:last-child{border-bottom:none;}
+
+/* PROJECTS */
+#projects{background:var(--white);}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:26px;}
+.proj-card{
+  background:var(--cream);border-radius:var(--r-lg);
+  overflow:hidden;border:1px solid var(--border);transition:.35s;
+}
+.proj-card:hover{transform:translateY(-8px);box-shadow:var(--sh-lg);border-color:rgba(232,137,74,0.3);}
+.proj-card img{width:100%;height:210px;object-fit:cover;display:block;cursor:zoom-in;transition:.4s;}
+.proj-card:hover img{transform:scale(1.04);}
+.proj-body{padding:26px;}
+.proj-tag{
+  display:inline-block;background:var(--blush2);color:var(--accent);
+  font-size:11px;font-weight:800;padding:4px 12px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:0.6px;margin-bottom:12px;
+}
+.proj-body h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.35;}
+.proj-body p{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:18px;}
+.proj-link{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--navy);color:#fff;padding:10px 22px;
+  border-radius:50px;font-size:13px;font-weight:700;
+  text-decoration:none;transition:.3s;
+}
+.proj-link:hover{background:var(--accent);transform:translateY(-1px);}
+
+/* EXPERIENCE */
+#experience{background:var(--cream);}
+.timeline{position:relative;padding-left:38px;}
+.timeline::before{
+  content:'';position:absolute;left:9px;top:8px;bottom:8px;
+  width:2px;background:linear-gradient(to bottom,var(--navy),var(--accent));border-radius:2px;
+}
+.titem{position:relative;margin-bottom:50px;}
+.tdot{
+  position:absolute;left:-33px;top:8px;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--white);border:3px solid var(--navy);
+}
+.titem:first-child .tdot{background:var(--navy);}
+.tcard{background:var(--white);border-radius:var(--r);padding:34px;box-shadow:var(--sh);border:1px solid var(--border);}
+.tcard-head{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;margin-bottom:6px;}
+.tcard-title{font-size:18px;font-weight:800;color:var(--navy);}
+.tcard-period{font-size:12px;color:var(--accent);font-weight:800;background:var(--blush);padding:5px 14px;border-radius:20px;}
+.tcard-co{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:20px;}
+.tlist{list-style:none;}
+.tlist li{font-size:13.5px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;line-height:1.65;}
+.tlist li::before{content:'▸';color:var(--accent);flex-shrink:0;margin-top:2px;font-weight:700;}
+.tlist li:last-child{border-bottom:none;}
+
+/* BOOKS */
+#books{background:var(--white);}
+.books-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;}
+.book-card{
+  background:var(--cream);border-radius:var(--r-lg);
+  overflow:hidden;border:1px solid var(--border);
+  transition:.35s;text-align:center;
+}
+.book-card:hover{transform:translateY(-8px);box-shadow:var(--sh-lg);}
+.book-cover{
+  width:100%;height:320px;object-fit:cover;
+  display:block;cursor:zoom-in;transition:.4s;
+}
+.book-card:hover .book-cover{transform:scale(1.03);}
+.book-body{padding:24px;}
+.book-num{font-size:11px;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+.book-title{font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.3;}
+.book-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px;}
+.book-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--navy);color:#fff;padding:10px 24px;
+  border-radius:50px;font-size:13px;font-weight:700;
+  text-decoration:none;transition:.3s;
+}
+.book-btn:hover{background:var(--accent);}
+
+/* CREATIVE / CONTENT */
+#creative{background:var(--cream);}
+.ctabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px;}
+.ctab{
+  padding:11px 26px;border-radius:50px;border:2px solid var(--border);
+  background:transparent;color:var(--muted);font-weight:700;font-size:13.5px;
+  cursor:pointer;transition:.25s;font-family:var(--font-sans);
+}
+.ctab:hover,.ctab.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.cpanel{display:none;}
+.cpanel.active{display:block;animation:fadeUp .35s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* Reels panel */
+.reels-intro{
+  background:linear-gradient(135deg,#E1306C,#833AB4,#F77737);
+  border-radius:var(--r-lg);padding:32px 36px;color:#fff;
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:32px;
+}
+.reels-intro .ig-handle{font-size:22px;font-weight:800;}
+.reels-intro .ig-sub{font-size:14px;opacity:.88;margin-top:4px;}
+.reels-intro a{
+  margin-left:auto;background:#fff;color:#E1306C;
+  padding:12px 26px;border-radius:30px;text-decoration:none;
+  font-weight:800;font-size:14px;transition:.3s;flex-shrink:0;
+}
+.reels-intro a:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.2);}
+.reels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+.reel-card{
+  background:var(--white);border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--sh);border:1px solid var(--border);transition:.3s;
+}
+.reel-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);}
+.reel-thumb{
+  height:200px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.reel-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.reel-thumb-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.2) 100%);
+}
+.reel-thumb-bg{
+  width:100%;height:100%;object-fit:cover;
+  background:linear-gradient(135deg,#1a1a2e,#2d3da8);
+}
+.reel-tag{
+  position:absolute;top:14px;left:14px;z-index:2;
+  background:#E1306C;color:#fff;font-size:11px;font-weight:800;
+  padding:4px 12px;border-radius:20px;
+}
+.reel-play{
+  position:absolute;z-index:2;
+  width:56px;height:56px;background:rgba(255,255,255,0.92);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;text-decoration:none;color:var(--navy);
+  transition:.3s;padding-left:5px;
+}
+.reel-play:hover{background:var(--accent);color:#fff;transform:scale(1.1);}
+.reel-body{padding:20px;}
+.reel-body h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.4;}
+.reel-body p{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6;}
+.reel-body a{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#E1306C;color:#fff;padding:9px 18px;
+  border-radius:30px;font-size:12px;font-weight:700;text-decoration:none;transition:.3s;
+}
+.reel-body a:hover{background:#c41457;}
+
+/* LinkedIn Articles */
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;}
+.article-card{
+  background:var(--white);border-radius:var(--r);padding:30px;
+  box-shadow:var(--sh);border:1px solid var(--border);transition:.3s;
+  border-top:4px solid #0077B5;
+}
+.article-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);}
+.article-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#e8f4fd;color:#0077B5;font-size:11px;font-weight:800;
+  padding:4px 12px;border-radius:20px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px;
+}
+.article-card h3{font-family:var(--font-serif);font-size:19px;color:var(--navy);margin-bottom:10px;line-height:1.35;font-weight:700;}
+.article-card p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px;}
+.article-link{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#0077B5;color:#fff;padding:10px 20px;
+  border-radius:30px;text-decoration:none;font-size:12px;font-weight:700;transition:.3s;
+}
+.article-link:hover{background:#005885;}
+
+/* Mokti blogs */
+.mokti-section-header{
+  display:flex;align-items:center;gap:24px;
+  background:linear-gradient(135deg,#2c2c2c,#1a1a1a);
+  border-radius:var(--r-lg);padding:32px 36px;color:#fff;
+  margin-bottom:32px;flex-wrap:wrap;
+}
+.mokti-logo-img{height:50px;filter:invert(1);}
+.mokti-header-text h3{font-family:var(--font-serif);font-size:22px;font-weight:700;margin-bottom:4px;}
+.mokti-header-text p{font-size:14px;opacity:.8;}
+.mokti-header-text a{
+  display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+  background:var(--accent);color:#fff;padding:10px 22px;
+  border-radius:30px;font-size:13px;font-weight:700;text-decoration:none;transition:.3s;
+}
+.mokti-header-text a:hover{background:var(--accent2);}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+.blog-card{
+  background:var(--white);border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--sh);border:1px solid var(--border);transition:.3s;
+}
+.blog-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);}
+.blog-card img{width:100%;height:180px;object-fit:cover;display:block;}
+.blog-card-body{padding:22px;}
+.blog-badge{
+  display:inline-block;background:var(--blush2);color:var(--accent);
+  font-size:11px;font-weight:800;padding:4px 12px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;
+}
+.blog-card-body h3{font-family:var(--font-serif);font-size:18px;color:var(--navy);margin-bottom:10px;line-height:1.35;font-weight:700;}
+.blog-card-body p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px;}
+.blog-link{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--navy);color:#fff;padding:9px 20px;
+  border-radius:30px;font-size:12px;font-weight:700;text-decoration:none;transition:.3s;
+}
+.blog-link:hover{background:var(--accent);}
+
+/* MOKTI BRAND */
+#mokti{background:var(--white);}
+.mokti-hero-wrap{
+  display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;margin-bottom:50px;
+}
+.mokti-hero-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg);}
+.mokti-hero-img img{width:100%;display:block;border-radius:var(--r-lg);}
+.mokti-hero-text .sec-label{margin-bottom:12px;}
+.mokti-logo-display{margin-bottom:24px;}
+.mokti-logo-display img{height:60px;}
+.mokti-hero-text p{font-size:15.5px;color:var(--muted);line-height:1.9;margin-bottom:16px;}
+.mokti-hero-text p strong{color:var(--navy);}
+.mokti-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+.mokti-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--navy);color:#fff;padding:12px 26px;
+  border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;transition:.3s;
+}
+.mokti-btn:hover{background:var(--accent);transform:translateY(-2px);}
+.mokti-btn.outline{background:transparent;color:var(--navy);border:2px solid var(--navy);}
+.mokti-btn.outline:hover{background:var(--navy);color:#fff;}
+.mokti-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+.mtag{
+  background:var(--cream);border:1px solid rgba(232,137,74,0.35);
+  color:var(--accent);padding:8px 18px;border-radius:20px;font-size:13px;font-weight:700;
+}
+.mokti-free-soul{
+  background:var(--blush);border-radius:var(--r-lg);padding:36px;
+  display:flex;gap:28px;align-items:center;flex-wrap:wrap;
+  border:1px solid rgba(232,137,74,0.2);
+}
+.mokti-free-soul img{width:120px;height:120px;border-radius:var(--r);object-fit:cover;flex-shrink:0;}
+.free-soul-text h3{font-family:var(--font-serif);font-size:22px;color:var(--navy);margin-bottom:8px;}
+.free-soul-text p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px;}
+.free-soul-text a{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--accent);font-weight:700;font-size:13px;text-decoration:none;
+}
+.free-soul-text a:hover{color:var(--navy);}
+
+/* CERTS */
+#certs{background:var(--cream);}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.cert-card{
+  background:var(--white);border-radius:var(--r);padding:28px;
+  box-shadow:var(--sh);border:1px solid var(--border);transition:.3s;
+  border-top:3px solid var(--accent);
+}
+.cert-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);}
+.cert-card .cico{font-size:28px;margin-bottom:12px;}
+.cert-card h4{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.4;}
+.cert-card p{font-size:12.5px;color:var(--muted);}
+.cert-yr{font-size:12px;font-weight:800;color:var(--accent);margin-top:10px;}
+
+/* CONTACT */
+#contact{
+  background:linear-gradient(135deg,var(--navy) 0%,#2a3490 100%);
+  text-align:center;
+}
+#contact .sec-label{color:rgba(232,137,74,0.9);}
+#contact .sec-label::before{background:var(--accent);}
+#contact .sec-h{color:#fff;}
+#contact .sec-p{color:rgba(255,255,255,0.65);margin:0 auto 50px;}
+.con-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.cbtn{
+  text-decoration:none;color:#fff;padding:13px 24px;border-radius:50px;
+  font-size:14px;font-weight:700;transition:.3s;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+}
+.cbtn:hover{background:rgba(255,255,255,0.22);transform:translateY(-2px);}
+.cbtn.em{background:var(--accent);border-color:var(--accent);}
+.cbtn.em:hover{background:var(--accent2);}
+.cbtn.wa{background:#25D366;border-color:#25D366;}
+.cbtn.wa:hover{background:#1ea952;}
+.cbtn.ig{background:linear-gradient(135deg,#E1306C,#833AB4);border-color:#E1306C;}
+.cbtn.ig:hover{opacity:.9;}
+
+/* FOOTER */
+footer{background:#0b1135;text-align:center;padding:30px 7%;color:rgba(255,255,255,0.35);font-size:13px;}
+footer span{color:var(--accent);}
+
+/* IMAGE MODAL */
+.imgmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9998;align-items:center;justify-content:center;}
+.imgmodal.open{display:flex;}
+.imgmodal img{max-width:92vw;max-height:90vh;border-radius:16px;}
+.imgmodal-x{position:fixed;top:20px;right:26px;color:#fff;font-size:38px;cursor:pointer;background:none;border:none;line-height:1;z-index:9999;}
+
+/* REVEAL ANIM */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about-grid,.mokti-hero-wrap{grid-template-columns:1fr;}
+  .about-img-col{max-width:380px;margin:0 auto;}
+  .mokti-hero-img{max-width:100%;}
+}
+@media(max-width:768px){
+  nav ul{display:none;}
+  .hamburger{display:flex;}
+  .hero{padding:50px 6%;gap:40px;min-height:auto;}
+  .hero h1{font-size:40px;}
+  .hero-img-main{width:280px;height:360px;}
+  section{padding:60px 6%;}
+  .hero-stats{gap:22px;}
+  .reels-intro a{margin-left:0;}
+  .mokti-section-header{flex-direction:column;text-align:center;}
+  .mokti-free-soul{flex-direction:column;text-align:center;}
+}
+@media(max-width:480px){
+  .hero h1{font-size:34px;}
+  .hero-btns{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Surbhi<span>.</span></a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#creative">Creative</a></li>
+    <li><a href="#mokti">Mokti</a></li>
+    <li><a href="#contact" class="nav-cta">Connect</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a href="#about" onclick="toggleNav()">About</a>
+  <a href="#skills" onclick="toggleNav()">Skills</a>
+  <a href="#projects" onclick="toggleNav()">Work</a>
+  <a href="#books" onclick="toggleNav()">Books</a>
+  <a href="#creative" onclick="toggleNav()">Creative</a>
+  <a href="#mokti" onclick="toggleNav()">Mokti</a>
+  <a href="#contact" onclick="toggleNav()">Connect</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Ecommerce · Analytics · Author · Creator</div>
+    <h1>Hi, I'm<br><em>Surbhi Priya</em></h1>
+    <p class="hero-sub">Operations mind. Creative soul.</p>
+    <p class="hero-desc">
+      I run ecommerce operations by day, write novels by night, and create content that actually feels like me.
+      3+ years in D2C startups. 3 books published. Infinite curiosity.
+    </p>
+    <div class="hero-btns">
+      <a href="my_resume.pdf" class="btn-p" target="_blank">⬇ Download Resume</a>
+      <a href="https://www.linkedin.com/in/surbhi-priya9" class="btn-s" target="_blank">LinkedIn</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-n">7+</div>
+        <div class="stat-l">Years Professional</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">3</div>
+        <div class="stat-l">Books Published</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">4</div>
+        <div class="stat-l">Marketplaces</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">300+</div>
+        <div class="stat-l">Vendors Onboarded</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-stack">
+      <img src="MYPICA.png" alt="Surbhi Priya" class="hero-img-main">
+      <div class="hero-badge-1">
+        <strong>95%+</strong>
+        On-time dispatch rate
+      </div>
+      <div class="hero-badge-2">✦ 3× Published Author</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-col reveal">
+      <img src="casual_photo.png" alt="Surbhi Priya casual">
+      <div class="about-accent"></div>
+    </div>
+    <div class="about-text reveal">
+      <div class="sec-label">About Me</div>
+      <h2 class="sec-h">Where Data Meets<br><em>Creativity</em></h2>
+      <p>
+        I'm an <strong>Ecommerce Operations & Analytics professional</strong> who's spent 7+ years building things — 
+        whether that's a smooth D2C order pipeline, a Power BI dashboard that finally makes sense, 
+        or a story that keeps you up at night.
+      </p>
+      <p>
+        My day job is <strong>running ecommerce operations</strong> across Shopify, Myntra, Amazon, and Flipkart — 
+        managing inventory, logistics, analytics, and catalog for a fast-paced D2C startup. 
+        I've onboarded 300+ vendors, automated product listings with Claude AI, and built dashboards that drive real decisions.
+      </p>
+      <p>
+        But the truest version of me? A <strong>storyteller</strong>. I've published 3 novels on Kindle, 
+        started my own Instagram channel (bakbak sessions, dance, motivation — all of it!), 
+        and built <em style="font-family:var(--font-serif);font-style:italic;font-size:17px;">Mokti</em> — 
+        a personal brand about freedom, self-expression, and choosing yourself.
+      </p>
+      <div class="about-chips">
+        <span class="chip">🛍️ D2C Ecommerce</span>
+        <span class="chip">📊 Power BI</span>
+        <span class="chip">📚 3× Author</span>
+        <span class="chip">🎬 Content Creator</span>
+        <span class="chip">🤖 AI Tools</span>
+        <span class="chip">💃 Dancer</span>
+        <span class="chip">✨ Mokti Founder</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-label">Skills & Tools</div>
+  <h2 class="sec-h">What I Bring to the Table</h2>
+  <p class="sec-p">Click any card to see exactly what I can do — from ecommerce platforms to analytics to creative work.</p>
+  <div class="skills-grid">
+    <div class="sk-card reveal" onclick="openSk('ecom')">
+      <div class="sk-ico">🛒</div>
+      <h4>Ecommerce & CRMs</h4>
+      <p>Shopify, Myntra, Amazon, Flipkart, Freshdesk</p>
+    </div>
+    <div class="sk-card reveal" onclick="openSk('analytics')">
+      <div class="sk-ico">📊</div>
+      <h4>Analytics & Reporting</h4>
+      <p>Power BI, Excel, SQL, KPI dashboards</p>
+    </div>
+    <div class="sk-card reveal" onclick="openSk('python')">
+      <div class="sk-ico">🐍</div>
+      <h4>Python & Data</h4>
+      <p>Pandas, NumPy, Streamlit</p>
+    </div>
+    <div class="sk-card reveal" onclick="openSk('ops')">
+      <div class="sk-ico">⚙️</div>
+      <h4>Operations</h4>
+      <p>Order mgmt, inventory, Shiprocket logistics</p>
+    </div>
+    <div class="sk-card reveal" onclick="openSk('writing')">
+      <div class="sk-ico">✍️</div>
+      <h4>Writing & Storytelling</h4>
+      <p>3 published novels, blogs, LinkedIn articles</p>
+    </div>
+    <div class="sk-card reveal" onclick="openSk('creative')">
+      <div class="sk-ico">🎨</div>
+      <h4>Creative & Content</h4>
+      <p>Reels, Canva, video editing, content strategy</p>
+    </div>
+    <div class="sk-card reveal" onclick="openSk('ai')">
+      <div class="sk-ico">🤖</div>
+      <h4>AI Tools</h4>
+      <p>Claude AI, ChatGPT, Midjourney, Gemini</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILL MODAL -->
+<div class="sk-overlay" id="skModal" onclick="closeSk(event)">
+  <div class="sk-box">
+    <button class="sk-close" onclick="closeSkDirect()">&times;</button>
+    <div id="skContent"></div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label">Analytics & Tech Projects</div>
+  <h2 class="sec-h">Work That Speaks</h2>
+  <p class="sec-p">Built to solve real problems — ecommerce dashboards, SQL analysis, Python tools, and marketplace operations.</p>
+  <div class="proj-grid">
+    <div class="proj-card reveal">
+      <img src="mainpowerbi.png" alt="Power BI" onclick="openImg(this.src)">
+      <div class="proj-body">
+        <span class="proj-tag">Power BI</span>
+        <h3>Ecommerce Analytics Dashboards</h3>
+        <p>Interactive Power BI dashboards tracking revenue trends, inventory dispatch, warehouse KPIs, and customer return analysis for a live D2C brand.</p>
+        <a href="powerbi.html" class="proj-link">View Dashboards →</a>
+      </div>
+    </div>
+    <div class="proj-card reveal">
+      <img src="mainsql.png" alt="SQL" onclick="openImg(this.src)">
+      <div class="proj-body">
+        <span class="proj-tag">SQL</span>
+        <h3>Customer Return & Refund Analysis</h3>
+        <p>Deep SQL queries uncovering return patterns — top returned products, refund delays, payment method correlations, and customer behavior.</p>
+        <a href="sql.html" class="proj-link">View SQL Projects →</a>
+      </div>
+    </div>
+    <div class="proj-card reveal">
+      <img src="mainpython.png" alt="Python" onclick="openImg(this.src)">
+      <div class="proj-body">
+        <span class="proj-tag">Python · Streamlit</span>
+        <h3>Mood-Based Recommendation & Analytics</h3>
+        <p>Python + Streamlit apps: a mood-based product recommendation engine (Mokti) and a live marketing campaign ROI calculator — both deployed.</p>
+        <a href="python.html" class="proj-link">View Python Projects →</a>
+      </div>
+    </div>
+    <div class="proj-card reveal">
+      <img src="ecommerce.png" alt="Ecommerce" onclick="openImg(this.src)">
+      <div class="proj-body">
+        <span class="proj-tag">Ecommerce Operations</span>
+        <h3>Marketplace Operations — Live Screenshots</h3>
+        <p>Real hands-on screenshots: Shopify collections, Amazon seller panel, Myntra catalog management, analytics tracking, and order workflows.</p>
+        <a href="ecommerceexperience.html" class="proj-link">View Screenshots →</a>
+      </div>
+    </div>
+    <div class="proj-card reveal">
+      <img src="startup.png" alt="Startup" onclick="openImg(this.src)">
+      <div class="proj-body">
+        <span class="proj-tag">Startup Journey</span>
+        <h3>3+ Years in a Fast-Paced D2C Startup</h3>
+        <p>From onboarding 300+ vendors to managing 80 daily orders with 95% on-time dispatch — the real grit behind ecommerce operations.</p>
+        <a href="#experience" class="proj-link">See My Journey →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-label">Experience</div>
+  <h2 class="sec-h">7+ Years of Getting Things Done</h2>
+  <p class="sec-p">From managing customer relationships to running end-to-end ecommerce operations at a D2C startup.</p>
+  <div class="timeline">
+
+    <div class="titem reveal">
+      <div class="tdot"></div>
+      <div class="tcard">
+        <div class="tcard-head">
+          <div class="tcard-title">Ecommerce Operations Specialist / Analyst</div>
+          <span class="tcard-period">Dec 2022 – May 2026</span>
+        </div>
+        <div class="tcard-co">Worxstax Solutions Pvt Ltd · Bangalore</div>
+        <ul class="tlist">
+          <li>Managed end-to-end D2C ecommerce operations across Shopify, Myntra, Amazon & Flipkart.</li>
+          <li>Maintained 95%+ next-day shipping handling 50–80 daily orders during peak seasons.</li>
+          <li>Automated Shopify product listings using Claude AI — improved catalog efficiency and conversion.</li>
+          <li>Led seasonal launches — Holi, Valentine's Day, Pet Lover collections — from mockup to go-live.</li>
+          <li>Built Power BI dashboards tracking KPIs: fulfillment, returns, dispatch delays, customer trends.</li>
+          <li>Managed Shiprocket logistics — NDR, courier coordination, COD RTO reduction.</li>
+          <li>Created Instagram reels and WhatsApp content using Canva for brand promotions.</li>
+          <li>Successfully onboarded 300+ vendors onto the Storeily B2B platform.</li>
+          <li>Handled customer support via Freshdesk, Shopify Inbox, email and chat.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="titem reveal">
+      <div class="tdot"></div>
+      <div class="tcard">
+        <div class="tcard-head">
+          <div class="tcard-title">Customer Retention Executive</div>
+          <span class="tcard-period">Jun 2017 – Jun 2021</span>
+        </div>
+        <div class="tcard-co">Vap Technology · Kolkata · 4 Years</div>
+        <ul class="tlist">
+          <li>Managed long-term customer relationships through proactive communication and personalised follow-ups.</li>
+          <li>Collected and channelled customer feedback — coordinated with internal teams to improve service quality.</li>
+          <li>Handled inbound calls, email support & live chat (tawk.to) — contributing to measurable satisfaction improvements.</li>
+          <li>Built strong client relationships that led to higher repeat engagement and customer retention rates.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section id="books">
+  <div class="sec-label">Published Author</div>
+  <h2 class="sec-h">3 Books. 3 Stories.<br><em>One Heart.</em></h2>
+  <p class="sec-p">I write about love, longing, coincidence, and the complicated feelings we don't always have words for — until someone puts them on a page.</p>
+  <div class="books-grid">
+
+    <div class="book-card reveal">
+      <img src="was_that_love_cover_page_.png" alt="Was That Love Or Just" class="book-cover" onclick="openImg(this.src)">
+      <div class="book-body">
+        <div class="book-num">Book 01</div>
+        <div class="book-title">Was That Love Or Just...???</div>
+        <p class="book-desc">A raw, honest exploration of the blurry line between love and something that only feels like it. For everyone who's asked themselves this very question.</p>
+        <a href="https://amzn.in/d/0adUNeYZ" target="_blank" class="book-btn">Read on Kindle →</a>
+      </div>
+    </div>
+
+    <div class="book-card reveal">
+      <img src="that_christmas_eve_cover_page.png" alt="That Christmas Eve" class="book-cover" onclick="openImg(this.src)">
+      <div class="book-body">
+        <div class="book-num">Book 02</div>
+        <div class="book-title">That Christmas Eve</div>
+        <p class="book-desc">A story about one magical night that changes everything. Warm, nostalgic, and quietly heartbreaking — the way only Christmas stories can be.</p>
+        <a href="https://amzn.in/d/0bLostU4" target="_blank" class="book-btn">Read on Kindle →</a>
+      </div>
+    </div>
+
+    <div class="book-card reveal">
+      <img src="when_coincidence_felt_like.png" alt="When Coincidence Felt Like Love" class="book-cover" onclick="openImg(this.src)">
+      <div class="book-body">
+        <div class="book-num">Book 03</div>
+        <div class="book-title">When Coincidence Felt Like Love</div>
+        <p class="book-desc">A destiny love story — about two people, a series of impossible coincidences, and the question of whether the universe is really trying to tell us something.</p>
+        <a href="https://amzn.in/d/02auYi5y" target="_blank" class="book-btn">Read on Kindle →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CREATIVE -->
+<section id="creative">
+  <div class="sec-label">Creative Work</div>
+  <h2 class="sec-h">The Other Side of Me</h2>
+  <p class="sec-p">Reels, bakbak sessions, dance, LinkedIn articles, and Mokti blogs — this is where I show up as myself, unfiltered.</p>
+
+  <div class="ctabs">
+    <button class="ctab active" onclick="showTab('reels',this)">🎬 Reels & Videos</button>
+    <button class="ctab" onclick="showTab('articles',this)">💼 LinkedIn Articles</button>
+    <button class="ctab" onclick="showTab('blogs',this)">✍️ Mokti Blogs</button>
+  </div>
+
+  <!-- REELS -->
+  <div class="cpanel active" id="tab-reels">
+    <div class="reels-intro">
+      <div>
+        <div class="ig-handle">@surbhie.priya</div>
+        <div class="ig-sub">Instagram · Bakbak Sessions · Dance · Motivation · Life Reels</div>
+      </div>
+      <a href="https://www.instagram.com/surbhie.priya" target="_blank">Visit My Profile →</a>
+    </div>
+    <div class="reels-grid">
+
+      <div class="reel-card reveal">
+        <div class="reel-thumb" style="background:linear-gradient(135deg,#833AB4,#E1306C);">
+          <span class="reel-tag">🎤 Bakbak Session</span>
+          <a href="https://www.instagram.com/reel/DRKDAqRk8-l/" target="_blank" class="reel-play">▶</a>
+        </div>
+        <div class="reel-body">
+          <h3>Bakbak Session — Speaking My Mind</h3>
+          <p>Straight to camera, no filter. I talk about things that matter — life, work, choices, and what nobody tells you about growing up in your 30s.</p>
+          <a href="https://www.instagram.com/reel/DRKDAqRk8-l/" target="_blank">Watch Reel →</a>
+        </div>
+      </div>
+
+      <div class="reel-card reveal">
+        <div class="reel-thumb" style="background:linear-gradient(135deg,#F77737,#FCAF45);">
+          <span class="reel-tag">✨ Lifestyle Reel</span>
+          <a href="https://www.instagram.com/reel/DQrq7MQAc1q/" target="_blank" class="reel-play">▶</a>
+        </div>
+        <div class="reel-body">
+          <h3>Lifestyle Reel — Being Surbhi</h3>
+          <p>A glimpse into my world — the little moments, the vibe, the energy I bring to everything I do. This one's just me, being me.</p>
+          <a href="https://www.instagram.com/reel/DQrq7MQAc1q/" target="_blank">Watch Reel →</a>
+        </div>
+      </div>
+
+      <div class="reel-card reveal">
+        <div class="reel-thumb" style="background:linear-gradient(135deg,#E1306C,#405DE6);">
+          <span class="reel-tag">💃 Dance Reel</span>
+          <a href="https://www.instagram.com/reel/DUFJhuPggjB/" target="_blank" class="reel-play">▶</a>
+        </div>
+        <div class="reel-body">
+          <h3>Dance Reel — Pure Joy</h3>
+          <p>Because sometimes you just need to dance. This reel is exactly that — unscripted, joyful, and completely me.</p>
+          <a href="https://www.instagram.com/reel/DUFJhuPggjB/" target="_blank">Watch Reel →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LINKEDIN ARTICLES -->
+  <div class="cpanel" id="tab-articles">
+    <div class="articles-grid">
+
+      <div class="article-card reveal">
+        <div class="article-badge">📝 LinkedIn Article</div>
+        <h3>Why Building Something From Scratch Inspires Me</h3>
+        <p>The thrill of starting with nothing and creating something real — why I'm drawn to building, experimenting, and the messy, beautiful process of making things from zero.</p>
+        <a href="https://www.linkedin.com/pulse/why-building-something-from-scratch-inspires-me-surbhi-priya-rqqhc" target="_blank" class="article-link">Read on LinkedIn →</a>
+      </div>
+
+      <div class="article-card reveal">
+        <div class="article-badge">📝 LinkedIn Article</div>
+        <h3>From Vendor Onboarding to Customer Operations — My Startup Journey</h3>
+        <p>What 3+ years inside a fast-paced D2C startup really looks like — the operations, the lessons, the chaos, and what I took away from every challenge.</p>
+        <a href="https://www.linkedin.com/pulse/from-vendor-onboarding-customer-operations-my-startup-surbhi-priya-qzhgc" target="_blank" class="article-link">Read on LinkedIn →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MOKTI BLOGS -->
+  <div class="cpanel" id="tab-blogs">
+    <div class="mokti-section-header">
+      <img src="inverse_logo.png" alt="Mokti" class="mokti-logo-img">
+      <div class="mokti-header-text">
+        <h3>Mokti Journal — Stories Worth Reading</h3>
+        <p>Personal essays, honest reflections, and the kind of writing that makes you feel seen.</p>
+        <a href="https://mokti.in/blogs/mokti-journal" target="_blank">Visit Mokti Journal →</a>
+      </div>
+    </div>
+    <div class="blog-grid">
+
+      <div class="blog-card reveal">
+        <img src="blog_post_3.png" alt="Free Soul Blog">
+        <div class="blog-card-body">
+          <span class="blog-badge">Personal Essay</span>
+          <h3>A Free Soul: Why I Created Mokti</h3>
+          <p>"Sometimes, instead of waiting for someone to choose you — you choose yourself." The story behind Mokti, written from the heart.</p>
+          <a href="https://mokti.in/blogs/mokti-journal/a-free-soul-why-i-created-mokti" target="_blank" class="blog-link">Read Blog →</a>
+        </div>
+      </div>
+
+      <div class="blog-card reveal">
+        <div style="height:180px;background:linear-gradient(135deg,#2c2c2c,#444);display:flex;align-items:center;justify-content:center;font-size:48px;">🌱</div>
+        <div class="blog-card-body">
+          <span class="blog-badge">Cultural Essay</span>
+          <h3>The Forgotten Generation: Why Millennials Between 30–35 Deserve More Credit</h3>
+          <p>We grew up without maps and built our own. A love letter to the generation navigating careers, identity, and self-discovery all at once.</p>
+          <a href="https://mokti.in/blogs/mokti-journal/the-forgotten-generation-why-millennials-between-30-35-deserve-more-credit" target="_blank" class="blog-link">Read Blog →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MOKTI BRAND -->
+<section id="mokti">
+  <div class="mokti-hero-wrap">
+    <div class="mokti-hero-text reveal">
+      <div class="sec-label">Mokti</div>
+      <div class="mokti-logo-display">
+        <img src="logo__1_.png" alt="Mokti Logo">
+      </div>
+      <p>
+        <strong>Mokti</strong> is my most personal project. The name means <em>freedom</em> — and that's exactly what it represents.
+        It's a space I built for myself and for every woman who's ever felt like she needed permission to just… be.
+      </p>
+      <p>
+        Mokti started as an experiment — a Python-based mood recommendation app — and grew into something much deeper:
+        a blog, a brand, a journal, a community. It's where I write honestly, experiment freely,
+        and build things that come from the soul rather than a brief.
+      </p>
+      <p>
+        "Sometimes, instead of waiting for someone to choose you — <strong>you choose yourself.</strong>"
+      </p>
+      <div class="mokti-btns">
+        <a href="https://mokti.in" target="_blank" class="mokti-btn">Visit Mokti →</a>
+        <a href="https://mokti-quiz-gwessfnmqc8ir62rzfw3xc.streamlit.app/" target="_blank" class="mokti-btn outline">Try Mokti App →</a>
+      </div>
+      <div class="mokti-tags">
+        <span class="mtag">Freedom & Self-Expression</span>
+        <span class="mtag">Mood Discovery</span>
+        <span class="mtag">Personal Brand</span>
+        <span class="mtag">Python + Streamlit</span>
+        <span class="mtag">Honest Writing</span>
+        <span class="mtag">Women's Stories</span>
+      </div>
+    </div>
+    <div class="mokti-hero-img reveal">
+      <img src="inverse_logo.png" alt="Mokti Brand">
+    </div>
+  </div>
+
+  <div class="mokti-free-soul reveal">
+    <img src="blog_post_3.png" alt="A Free Soul">
+    <div class="free-soul-text">
+      <h3>A Free Soul — Why I Created Mokti</h3>
+      <p>My most read piece. The honest, vulnerable story of why I built Mokti — about choosing yourself when no one else does, about freedom, and about what it means to finally show up for your own life.</p>
+      <a href="https://mokti.in/blogs/mokti-journal/a-free-soul-why-i-created-mokti" target="_blank">Read the full story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="sec-label">Education & Certifications</div>
+  <h2 class="sec-h">Always Learning</h2>
+  <p class="sec-p">Continuous growth in ecommerce, analytics, and digital marketing.</p>
+  <div class="certs-grid">
+    <div class="cert-card reveal">
+      <div class="cico">🎓</div>
+      <h4>Foundations of Digital Marketing & E-commerce</h4>
+      <p>Google · Coursera</p>
+      <div class="cert-yr">2026</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cico">📈</div>
+      <h4>Ultimate Job-Ready AI-Powered Data Analytics</h4>
+      <p>CodeWithHarry</p>
+      <div class="cert-yr">2026</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cico">🛒</div>
+      <h4>E-Commerce Made Simple: Zero to Sales</h4>
+      <p>Udemy</p>
+      <div class="cert-yr">2026</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cico">🏛️</div>
+      <h4>B.Tech — Information Technology</h4>
+      <p>Bengal College of Engineering & Technology, Durgapur</p>
+      <div class="cert-yr">2013 – 2017</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">Contact</div>
+  <h2 class="sec-h">Let's Build Something Together</h2>
+  <p class="sec-p">Open to ecommerce operations, analytics, content creation, and product roles. Let's talk!</p>
+  <div class="con-btns">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=surbhi7priya@gmail.com" target="_blank" class="cbtn em">✉ Email Me</a>
+    <a href="https://www.linkedin.com/in/surbhi-priya9" target="_blank" class="cbtn">LinkedIn</a>
+    <a href="https://github.com/Surbhi-Priya762" target="_blank" class="cbtn">GitHub</a>
+    <a href="https://mokti.in" target="_blank" class="cbtn">Mokti</a>
+    <a href="https://wa.me/918420089573" target="_blank" class="cbtn wa">WhatsApp</a>
+    <a href="https://www.instagram.com/surbhie.priya" target="_blank" class="cbtn ig">Instagram</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 <span>Surbhi Priya</span> · Ecommerce Operations · Analytics · 3× Author · Content Creator · Built with ♥
+</footer>
+
+<!-- IMAGE MODAL -->
+<div class="imgmodal" id="imgModal" onclick="closeImgClick(event)">
+  <button class="imgmodal-x" onclick="closeImg()">&times;</button>
+  <img id="modalImg" src="" alt="">
+</div>
+
+<script>
+/* NAV */
+function toggleNav(){
+  var m=document.getElementById('mobNav');
+  m.style.display=m.style.display==='flex'?'none':'flex';
+}
+
+/* IMAGE MODAL */
+function openImg(src){
+  document.getElementById('modalImg').src=src;
+  document.getElementById('imgModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeImgClick(e){if(e.target===document.getElementById('imgModal'))closeImg();}
+function closeImg(){document.getElementById('imgModal').classList.remove('open');document.body.style.overflow='';}
+
+/* SKILL DATA */
+var skData={
+  ecom:{t:'Ecommerce & CRMs',i:['Shopify Admin — product listings, orders, collections, inventory','Amazon Seller Panel — SKU management, fulfillment, pricing','Myntra Seller Panel — catalog uploads, listing optimization, ads','Flipkart Seller Hub — product management, order operations','Freshdesk — customer support ticket management','Shopify Inbox — live chat and customer communication','Product Listing & Catalog Optimization (AI-automated with Claude)','Shiprocket — logistics, NDR management, COD follow-ups']},
+  analytics:{t:'Analytics & Reporting',i:['Power BI — interactive dashboards, KPI reporting, DAX basics','Microsoft Excel — Pivot Tables, XLOOKUP, VLOOKUP, HLOOKUP, Power Query','SQL — SELECT, JOINs, GROUP BY, Aggregate functions, Subqueries','Data Cleaning & Analysis','Monthly sales & operational business reports','KPI Monitoring — order fulfillment, returns, dispatch delays']},
+  python:{t:'Python & Data Projects',i:['Pandas — data manipulation, CSV handling','NumPy — numerical computation','Streamlit — interactive web app deployment','Marketing Campaign Analyzer (live Streamlit app)','Mood-Based Ecommerce Recommendation System (Mokti)','Revenue & Market Analysis tools']},
+  ops:{t:'Operations',i:['Order Management — 50-80 orders/day during peak periods','Inventory Planning & stock monitoring','Logistics Coordination via Shiprocket (NDR, COD RTO reduction)','Seasonal Product Launches (Holi, Valentine\'s Day, Pet Lover)','Vendor Onboarding — 300+ vendors on Storeily B2B','Customer Support — returns, exchanges, size guidance','AI-based Product Mockup creation for campaigns','Meta Ads support (basic, under senior guidance)']},
+  writing:{t:'Writing & Storytelling',i:['3 Published Kindle eBooks — romance & love fiction','LinkedIn article writing — career & startup insights','Mokti Journal — personal essays and cultural reflections','Product description & ecommerce copywriting','Instagram captions and brand storytelling','Shopify homepage & collection page content','SEO-friendly content writing','AI-assisted content creation at scale']},
+  creative:{t:'Creative & Content',i:['Instagram Reels — Bakbak sessions (speaking to camera)','Dance reels — edited and published','Lifestyle & motivational content creation','Canva — social media posts, banners, product visuals','WhatsApp promotional content for brands','AI Product Mockups using Midjourney & Claude AI','Seasonal campaign design planning','Video editing for social media']},
+  ai:{t:'AI Tools',i:['Claude AI — catalog automation, content creation, product listings','ChatGPT — copywriting, ideation, research','Midjourney — AI product mockups and visual generation','Gemini — content support and research','GitHub Copilot — code assistance','Basic Prompt Engineering for business use cases','AI for ecommerce automation & productivity']}
+};
+function openSk(key){
+  var d=skData[key];
+  var h='<h2>'+d.t+'</h2><ul>';
+  d.i.forEach(function(x){h+='<li>'+x+'</li>';});
+  h+='</ul>';
+  document.getElementById('skContent').innerHTML=h;
+  document.getElementById('skModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeSk(e){if(e.target===document.getElementById('skModal'))closeSkDirect();}
+function closeSkDirect(){document.getElementById('skModal').classList.remove('open');document.body.style.overflow='';}
+
+/* CREATIVE TABS */
+function showTab(name,btn){
+  document.querySelectorAll('.cpanel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.ctab').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* SCROLL REVEAL */
+var ro=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+</script>
+</body>
+</html>

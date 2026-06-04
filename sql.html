@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SQL Projects | Surbhi Priya</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{--navy:#1a2260;--navy-deep:#0f1540;--accent:#e8894a;--accent2:#f4a261;--blush:#fff5ee;--blush2:#fde8d5;--cream:#faf8f4;--white:#ffffff;--text:#1a1a2e;--muted:#6b7280;--border:rgba(0,0,0,0.07);--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Plus Jakarta Sans',sans-serif;--r:18px;--r-lg:28px;--sh:0 4px 24px rgba(0,0,0,0.07);--sh-lg:0 16px 56px rgba(0,0,0,0.11);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--text);font-family:var(--font-sans);line-height:1.7;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 7%;background:rgba(250,248,244,0.95);backdrop-filter:blur(14px);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border);}
+.logo{font-family:var(--font-serif);font-size:24px;font-weight:700;color:var(--navy);text-decoration:none;}
+.logo span{color:var(--accent);}
+.back-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:10px 22px;border-radius:50px;text-decoration:none;font-size:13px;font-weight:700;transition:.3s;}
+.back-btn:hover{background:var(--accent);transform:translateY(-2px);}
+.page-hero{padding:70px 7% 50px;background:linear-gradient(140deg,var(--cream) 0%,#fff 55%,var(--blush) 100%);}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
+.sec-label::before{content:'';width:22px;height:2px;background:var(--accent);border-radius:2px;display:inline-block;}
+.page-hero h1{font-family:var(--font-serif);font-size:clamp(36px,5vw,62px);font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:16px;}
+.page-hero h1 em{font-style:italic;color:var(--accent);}
+.page-hero p{font-size:16px;color:var(--muted);max-width:620px;line-height:1.85;}
+.projects-section{padding:60px 7%;}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;}
+.project-card{background:var(--white);border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);transition:.35s;}
+.project-card:hover{transform:translateY(-8px);box-shadow:var(--sh-lg);border-color:rgba(232,137,74,0.3);}
+.project-card img{width:100%;height:220px;object-fit:cover;display:block;cursor:zoom-in;transition:.4s;}
+.project-card:hover img{transform:scale(1.04);}
+.project-content{padding:26px;}
+.proj-tag{display:inline-block;background:var(--blush2);color:var(--accent);font-size:11px;font-weight:800;padding:4px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:14px;}
+.project-content h3{font-family:var(--font-serif);font-size:20px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.3;}
+.project-content p{font-size:13.5px;color:var(--muted);line-height:1.8;margin-bottom:8px;}
+.project-content p strong{color:var(--navy);}
+.insight-box{background:var(--blush);border-left:3px solid var(--accent);padding:12px 16px;border-radius:0 10px 10px 0;margin-top:14px;font-size:13px;color:var(--navy);}
+footer{background:#0b1135;text-align:center;padding:30px 7%;color:rgba(255,255,255,0.35);font-size:13px;}
+footer span{color:var(--accent);}
+.imgmodal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:9998;align-items:center;justify-content:center;}
+.imgmodal.open{display:flex;}
+.imgmodal img{max-width:92vw;max-height:90vh;border-radius:16px;}
+.imgmodal-x{position:fixed;top:20px;right:26px;color:#fff;font-size:38px;cursor:pointer;background:none;border:none;z-index:9999;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@media(max-width:768px){.projects-grid{grid-template-columns:1fr;}.page-hero{padding:50px 6% 40px;}.projects-section{padding:40px 6%;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Surbhi<span>.</span></a>
+  <a href="index.html" class="back-btn">← Back to Portfolio</a>
+</nav>
+<div class="page-hero">
+  <div class="sec-label">Data Analysis</div>
+  <h1>SQL <em>Analytics</em> Projects</h1>
+  <p>Ecommerce-focused SQL analysis built using MySQL Workbench to uncover return patterns, refund delays, product performance, and operational insights from real data.</p>
+</div>
+<section class="projects-section">
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <img src="Total_returns.png" alt="Total Returns" onclick="openImg(this.src)">
+      <div class="project-content">
+        <span class="proj-tag">SQL · Aggregate</span>
+        <h3>Total Returns Analysis</h3>
+        <p>Used SQL COUNT aggregate functions to calculate total ecommerce returns across the dataset.</p>
+        <div class="insight-box">📊 Result: 1,000 total returns identified — establishing the baseline for all further analysis.</div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <img src="most_returned_product.png" alt="Most Returned Products" onclick="openImg(this.src)">
+      <div class="project-content">
+        <span class="proj-tag">SQL · GROUP BY</span>
+        <h3>Most Returned Products</h3>
+        <p>Used GROUP BY and COUNT to identify products with highest return frequency, ordered by total returns DESC.</p>
+        <div class="insight-box">📊 Crop Tops (115) and Cargo Pants (110) showed highest return rates — indicating possible sizing or quality concerns.</div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <img src="Return_reason_analysis.png" alt="Return Reason Analysis" onclick="openImg(this.src)">
+      <div class="project-content">
+        <span class="proj-tag">SQL · Analysis</span>
+        <h3>Return Reason Analysis</h3>
+        <p>Analysed customer return reasons using SQL grouping and sorting to surface the most impactful return drivers.</p>
+        <div class="insight-box">📊 Changed Mind (185) and Late Delivery (180) were the top reasons — pointing to logistics and UX improvement opportunities.</div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <img src="Payment_method_VS_Return.png" alt="Payment Method vs Returns" onclick="openImg(this.src)">
+      <div class="project-content">
+        <span class="proj-tag">SQL · Comparison</span>
+        <h3>Payment Method vs Returns</h3>
+        <p>Compared return volume across multiple payment methods to identify correlation between payment type and returns.</p>
+        <div class="insight-box">📊 Credit Card (270) and Debit Card (254) showed higher return counts vs UPI (229) — useful for COD risk analysis.</div>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <img src="Average_Refund_Delay.png" alt="Average Refund Delay" onclick="openImg(this.src)">
+      <div class="project-content">
+        <span class="proj-tag">SQL · AVG Function</span>
+        <h3>Average Refund Delay</h3>
+        <p>Calculated average refund processing time using the AVG() function to evaluate customer refund experience quality.</p>
+        <div class="insight-box">📊 Average refund delay: 5.56 days — a benchmark for improving refund SLA and customer satisfaction.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>© 2026 <span>Surbhi Priya</span> · Ecommerce Operations · Analytics · 3× Author · Built with ♥</footer>
+<div class="imgmodal" id="imgModal" onclick="closeImgClick(event)">
+  <button class="imgmodal-x" onclick="closeImg()">&times;</button>
+  <img id="modalImg" src="" alt="">
+</div>
+<script>
+function openImg(src){document.getElementById('modalImg').src=src;document.getElementById('imgModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeImgClick(e){if(e.target===document.getElementById('imgModal'))closeImg();}
+function closeImg(){document.getElementById('imgModal').classList.remove('open');document.body.style.overflow='';}
+var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+</script>
+</body>
+</html>
